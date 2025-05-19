@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Descobrir Braga em 3 Dias</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: url('https://cdn.pixabay.com/photo/2020/12/12/16/18/sameiro-sanctuary-5825919_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 500px;
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.1em;
+    }
+
+    .link-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px auto;
+      padding: 15px 20px;
+      width: 85%;
+      border: none;
+      border-radius: 30px;
+      background-color: white;
+      color: #2575fc;
+      font-size: 1em;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .link-button img {
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .link-button:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+    }
+
+    .lang-toggle {
+      margin-bottom: 20px;
+      background: #ffffff22;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .lang-toggle:hover {
+      background: #ffffff44;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .link-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <button class="lang-toggle" onclick="toggleLanguage()">🌐 Español</button>
+      <h1 id="title">Descobrir Braga em 3 Dias</h1>
+      <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
+
+      <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
+        <img src="https://flagcdn.com/w40/pt.png" alt="PT">
+        <span id="portuguese">Português</span>
+      </a>
+
+      <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
+        <img src="https://flagcdn.com/w40/es.png" alt="ES">
+        <span id="spanish">Espanhol</span>
+      </a>
+
+      <div class="footer">
+        © Município de Braga
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = "pt";
+
+    function toggleLanguage() {
+      const isPortuguese = currentLang === "pt";
+
+      document.getElementById("title").innerText = isPortuguese
+        ? "Descubrir Braga en 3 Días"
+        : "Descobrir Braga em 3 Dias";
+
+      document.getElementById("description").innerText = isPortuguese
+        ? "Descarga la guía turística en tu idioma:"
+        : "Descarrega o roteiro turístico no teu idioma:";
+
+      document.getElementById("portuguese").innerText = isPortuguese
+        ? "Portugués (Portugal)"
+        : "Português (Portugal)";
+
+      document.getElementById("spanish").innerText = isPortuguese
+        ? "Español"
+        : "Espanhol";
+
+      document.querySelector(".lang-toggle").innerText = isPortuguese
+        ? "🌐 Português"
+        : "🌐 Español";
+
+      currentLang = isPortuguese ? "es" : "pt";
+    }
+  </script>
+</body>
+</html>
