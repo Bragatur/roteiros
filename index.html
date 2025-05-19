@@ -21,6 +21,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
     .container {
@@ -40,11 +41,17 @@
       font-size: 1.1em;
     }
 
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
     .link-button {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 15px auto;
       padding: 15px 20px;
       width: 85%;
       border: none;
@@ -56,6 +63,8 @@
       text-decoration: none;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s, background-color 0.3s;
+      touch-action: manipulation;
+      min-height: 50px;
     }
 
     .link-button span.flag {
@@ -71,13 +80,15 @@
     .lang-toggle {
       margin-bottom: 20px;
       background: #ffffff22;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 20px;
       border: 1px solid white;
       color: white;
       cursor: pointer;
       font-weight: bold;
       transition: background 0.3s;
+      touch-action: manipulation;
+      min-height: 50px;
     }
 
     .lang-toggle:hover {
@@ -91,8 +102,23 @@
     }
 
     @media (max-width: 600px) {
-      .link-button {
+      .container {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .link-button,
+      .lang-toggle {
         width: 100%;
+        font-size: 0.95em;
+        padding: 12px 15px;
       }
     }
   </style>
@@ -104,15 +130,17 @@
       <h1 id="title">Descobrir Braga em 3 Dias</h1>
       <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
 
-      <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
-        <span class="flag">🇵🇹</span>
-        <span id="portuguese">Português</span>
-      </a>
+      <div class="button-group">
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
+          <span class="flag">🇵🇹</span>
+          <span id="portuguese">Português</span>
+        </a>
 
-      <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
-        <span class="flag">🇪🇸</span>
-        <span id="spanish">Espanhol</span>
-      </a>
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
+          <span class="flag">🇪🇸</span>
+          <span id="spanish">Espanhol</span>
+        </a>
+      </div>
 
       <div class="footer">
         © Município de Braga
@@ -146,8 +174,8 @@
         ? "🌐 Português"
         : "🌐 Español";
 
-      currentLang = isPortuguese ? "es" : "pt";
       document.documentElement.lang = isPortuguese ? "es" : "pt";
+      currentLang = isPortuguese ? "es" : "pt";
     }
   </script>
 </body>
