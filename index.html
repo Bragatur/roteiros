@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Descobrir Braga em 3 Dias</title>
+
   <style>
     body {
       margin: 0;
@@ -67,9 +68,11 @@
       min-height: 50px;
     }
 
-    .link-button span.flag {
+    .link-button img.flag-icon {
+      width: 24px;
+      height: auto;
       margin-right: 10px;
-      font-size: 1.3em;
+      border-radius: 3px;
     }
 
     .link-button:hover {
@@ -126,19 +129,19 @@
 <body>
   <div class="overlay">
     <div class="container">
-      <button class="lang-toggle" onclick="toggleLanguage()">🌐 Español</button>
+      <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Alternar idioma">🌐 Español</button>
       <h1 id="title">Descobrir Braga em 3 Dias</h1>
       <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
 
       <div class="button-group">
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
-          <span class="flag">🇵🇹</span>
-          <span id="portuguese">Português</span>
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank" aria-label="Abrir guia em português">
+          <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="flag-icon" />
+          <span id="portuguese" lang="pt">Português</span>
         </a>
 
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
-          <span class="flag">🇪🇸</span>
-          <span id="spanish">Espanhol</span>
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank" aria-label="Abrir guía en español">
+          <img src="https://flagcdn.com/w40/es.png" alt="Español" class="flag-icon" />
+          <span id="spanish" lang="es">Espanhol</span>
         </a>
       </div>
 
@@ -151,31 +154,34 @@
   <script>
     let currentLang = "pt";
 
+    const texts = {
+      pt: {
+        title: "Descobrir Braga em 3 Dias",
+        description: "Descarrega o roteiro turístico no teu idioma:",
+        portuguese: "Português",
+        spanish: "Espanhol",
+        toggle: "🌐 Español"
+      },
+      es: {
+        title: "Descubrir Braga en 3 Días",
+        description: "Descarga la guía turística en tu idioma:",
+        portuguese: "Portugués",
+        spanish: "Español",
+        toggle: "🌐 Português"
+      }
+    };
+
     function toggleLanguage() {
-      const isPortuguese = currentLang === "pt";
+      currentLang = currentLang === "pt" ? "es" : "pt";
+      const lang = texts[currentLang];
 
-      document.getElementById("title").innerText = isPortuguese
-        ? "Descubrir Braga en 3 Días"
-        : "Descobrir Braga em 3 Dias";
+      document.getElementById("title").innerText = lang.title;
+      document.getElementById("description").innerText = lang.description;
+      document.getElementById("portuguese").innerText = lang.portuguese;
+      document.getElementById("spanish").innerText = lang.spanish;
+      document.querySelector(".lang-toggle").innerText = lang.toggle;
 
-      document.getElementById("description").innerText = isPortuguese
-        ? "Descarga la guía turística en tu idioma:"
-        : "Descarrega o roteiro turístico no teu idioma:";
-
-      document.getElementById("portuguese").innerText = isPortuguese
-        ? "Portugués"
-        : "Português";
-
-      document.getElementById("spanish").innerText = isPortuguese
-        ? "Español"
-        : "Espanhol";
-
-      document.querySelector(".lang-toggle").innerText = isPortuguese
-        ? "🌐 Português"
-        : "🌐 Español";
-
-      document.documentElement.lang = isPortuguese ? "es" : "pt";
-      currentLang = isPortuguese ? "es" : "pt";
+      document.documentElement.lang = currentLang;
     }
   </script>
 </body>
