@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Descobrir Braga em 3 Dias</title>
 
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
   <style>
     body {
       margin: 0;
@@ -72,6 +75,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       padding: 10px 12px;
       width: 70%;
       border: none;
@@ -87,16 +91,14 @@
       min-height: 40px;
     }
 
-    .link-button img.flag-icon {
-      width: 24px;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 3px;
-    }
-
     .link-button:hover {
       background-color: #e0e0e0;
       transform: scale(1.05);
+    }
+
+    .material-icons {
+      font-size: 20px;
+      color: #2575fc;
     }
 
     .footer {
@@ -140,17 +142,17 @@
 
       <div class="button-group">
         <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
-          <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="flag-icon" />
+          <span class="material-icons">picture_as_pdf</span>
           <span id="portuguese">Português</span>
         </a>
 
         <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
-          <img src="https://flagcdn.com/w40/es.png" alt="Español" class="flag-icon" />
+          <span class="material-icons">picture_as_pdf</span>
           <span id="spanish">Espanhol</span>
         </a>
 
         <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
-          <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon" />
+          <span class="material-icons">picture_as_pdf</span>
           <span id="english">Inglês</span>
         </a>
       </div>
