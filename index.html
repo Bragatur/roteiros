@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -5,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Descobrir Braga em 3 Dias</title>
 
-  <!-- Google Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- LineIcons for download icon -->
+  <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
 
   <style>
     body {
@@ -64,15 +65,8 @@
       font-size: 1.1em;
     }
 
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-    }
-
     .link-button {
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       gap: 10px;
@@ -89,6 +83,7 @@
       transition: transform 0.2s, background-color 0.3s;
       touch-action: manipulation;
       min-height: 40px;
+      margin: 0 auto;
     }
 
     .link-button:hover {
@@ -96,9 +91,8 @@
       transform: scale(1.05);
     }
 
-    .material-icons {
-      font-size: 20px;
-      color: #2575fc;
+    .link-button i {
+      font-size: 18px;
     }
 
     .footer {
@@ -140,22 +134,17 @@
       <h1 id="title">Descobrir Braga em 3 Dias</h1>
       <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
 
-      <div class="button-group">
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
-          <span class="material-icons">picture_as_pdf</span>
-          <span id="portuguese">Português</span>
-        </a>
+      <a id="btn-pt" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
+        <i class="lni lni-download"></i> Português
+      </a>
 
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
-          <span class="material-icons">picture_as_pdf</span>
-          <span id="spanish">Espanhol</span>
-        </a>
+      <a id="btn-es" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
+        <i class="lni lni-download"></i> Español
+      </a>
 
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
-          <span class="material-icons">picture_as_pdf</span>
-          <span id="english">Inglês</span>
-        </a>
-      </div>
+      <a id="btn-en" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
+        <i class="lni lni-download"></i> English
+      </a>
 
       <div class="footer">
         © Município de Braga
@@ -167,37 +156,35 @@
     const texts = {
       pt: {
         title: "Descobrir Braga em 3 Dias",
-        description: "Descarrega o roteiro turístico no teu idioma:",
-        portuguese: "Português",
-        spanish: "Espanhol",
-        english: "Inglês"
+        description: "Descarrega o roteiro turístico no teu idioma:"
       },
       es: {
         title: "Descubrir Braga en 3 Días",
-        description: "Descarga la guía turística en tu idioma:",
-        portuguese: "Portugués",
-        spanish: "Español",
-        english: "Inglés"
+        description: "Descarga la guía turística en tu idioma:"
       },
       en: {
         title: "Discover Braga in 3 Days",
-        description: "Download the tourist guide in your language:",
-        portuguese: "Portuguese",
-        spanish: "Spanish",
-        english: "English"
+        description: "Download the tourist guide in your language:"
       }
     };
 
     function setLanguage(lang) {
-      const content = texts[lang];
-      document.getElementById("title").innerText = content.title;
-      document.getElementById("description").innerText = content.description;
-      document.getElementById("portuguese").innerText = content.portuguese;
-      document.getElementById("spanish").innerText = content.spanish;
-      document.getElementById("english").innerText = content.english;
+      document.getElementById("title").innerText = texts[lang].title;
+      document.getElementById("description").innerText = texts[lang].description;
       document.documentElement.lang = lang;
-      document.title = content.title;
+      document.title = texts[lang].title;
+
+      // Oculta todos os botões
+      document.getElementById("btn-pt").style.display = "none";
+      document.getElementById("btn-es").style.display = "none";
+      document.getElementById("btn-en").style.display = "none";
+
+      // Mostra apenas o botão da língua selecionada
+      document.getElementById(`btn-${lang}`).style.display = "flex";
     }
+
+    // Define o idioma padrão
+    setLanguage("pt");
   </script>
 </body>
 </html>
