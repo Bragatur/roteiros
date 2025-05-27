@@ -74,25 +74,31 @@
       animation: fadeIn 1s ease-in-out;
     }
 
+    .download-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
     .link-button {
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 10px 12px;
-      width: 60%;
+      padding: 12px 20px;
+      width: 100%;
+      max-width: 300px;
       border: none;
       border-radius: 30px;
       background-color: #2575fc;
       color: white;
-      font-size: 0.95em;
+      font-size: 1em;
       font-weight: bold;
       text-decoration: none;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
-      touch-action: manipulation;
-      min-height: 40px;
-      margin: 0 auto;
     }
 
     .link-button:hover {
@@ -126,9 +132,7 @@
       }
 
       .link-button {
-        width: 100%;
-        font-size: 0.9em;
-        padding: 10px 12px;
+        font-size: 0.95em;
       }
     }
   </style>
@@ -145,17 +149,19 @@
       <h1 id="title">Descobrir Braga em 3 Dias</h1>
       <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
 
-      <a id="btn-pt" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
-        <i class="lni lni-download"></i> Português
-      </a>
+      <div class="download-buttons">
+        <a id="btn-pt" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
+          <i class="lni lni-download"></i> Português
+        </a>
 
-      <a id="btn-es" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
-        <i class="lni lni-download"></i> Español
-      </a>
+        <a id="btn-es" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
+          <i class="lni lni-download"></i> Español
+        </a>
 
-      <a id="btn-en" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
-        <i class="lni lni-download"></i> English
-      </a>
+        <a id="btn-en" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
+          <i class="lni lni-download"></i> English
+        </a>
+      </div>
 
       <div class="footer">
         © Município de Braga
