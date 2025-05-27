@@ -32,6 +32,25 @@
       text-align: center;
     }
 
+    .lang-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .lang-buttons img {
+      width: 32px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border-radius: 5px;
+    }
+
+    .lang-buttons img:hover {
+      transform: scale(1.1);
+    }
+
     h1 {
       margin-bottom: 10px;
       font-size: 2em;
@@ -53,19 +72,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 20px;
-      width: 85%;
+      padding: 10px 12px;
+      width: 70%;
       border: none;
       border-radius: 30px;
       background-color: white;
       color: #2575fc;
-      font-size: 1em;
+      font-size: 0.95em;
       font-weight: bold;
       text-decoration: none;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s, background-color 0.3s;
       touch-action: manipulation;
-      min-height: 50px;
+      min-height: 40px;
     }
 
     .link-button img.flag-icon {
@@ -78,24 +97,6 @@
     .link-button:hover {
       background-color: #e0e0e0;
       transform: scale(1.05);
-    }
-
-    .lang-toggle {
-      margin-bottom: 20px;
-      background: #ffffff22;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: 1px solid white;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-      touch-action: manipulation;
-      min-height: 50px;
-    }
-
-    .lang-toggle:hover {
-      background: #ffffff44;
     }
 
     .footer {
@@ -117,11 +118,10 @@
         font-size: 1em;
       }
 
-      .link-button,
-      .lang-toggle {
+      .link-button {
         width: 100%;
-        font-size: 0.95em;
-        padding: 12px 15px;
+        font-size: 0.9em;
+        padding: 10px 12px;
       }
     }
   </style>
@@ -129,19 +129,29 @@
 <body>
   <div class="overlay">
     <div class="container">
-      <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Alternar idioma">🌐 Español</button>
+      <div class="lang-buttons">
+        <img src="https://flagcdn.com/w40/pt.png" alt="Português" onclick="setLanguage('pt')" title="Português" />
+        <img src="https://flagcdn.com/w40/es.png" alt="Español" onclick="setLanguage('es')" title="Español" />
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')" title="English" />
+      </div>
+
       <h1 id="title">Descobrir Braga em 3 Dias</h1>
       <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
 
       <div class="button-group">
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank" aria-label="Abrir guia em português">
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
           <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="flag-icon" />
-          <span id="portuguese" lang="pt">Português</span>
+          <span id="portuguese">Português</span>
         </a>
 
-        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/235cb087bb49cd9efcce8f6b9a10d0e034ddaae4/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank" aria-label="Abrir guía en español">
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
           <img src="https://flagcdn.com/w40/es.png" alt="Español" class="flag-icon" />
-          <span id="spanish" lang="es">Espanhol</span>
+          <span id="spanish">Espanhol</span>
+        </a>
+
+        <a class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
+          <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon" />
+          <span id="english">Inglês</span>
         </a>
       </div>
 
@@ -152,36 +162,39 @@
   </div>
 
   <script>
-    let currentLang = "pt";
-
     const texts = {
       pt: {
         title: "Descobrir Braga em 3 Dias",
         description: "Descarrega o roteiro turístico no teu idioma:",
         portuguese: "Português",
         spanish: "Espanhol",
-        toggle: "🌐 Español"
+        english: "Inglês"
       },
       es: {
         title: "Descubrir Braga en 3 Días",
         description: "Descarga la guía turística en tu idioma:",
         portuguese: "Portugués",
         spanish: "Español",
-        toggle: "🌐 Português"
+        english: "Inglés"
+      },
+      en: {
+        title: "Discover Braga in 3 Days",
+        description: "Download the tourist guide in your language:",
+        portuguese: "Portuguese",
+        spanish: "Spanish",
+        english: "English"
       }
     };
 
-    function toggleLanguage() {
-      currentLang = currentLang === "pt" ? "es" : "pt";
-      const lang = texts[currentLang];
-
-      document.getElementById("title").innerText = lang.title;
-      document.getElementById("description").innerText = lang.description;
-      document.getElementById("portuguese").innerText = lang.portuguese;
-      document.getElementById("spanish").innerText = lang.spanish;
-      document.querySelector(".lang-toggle").innerText = lang.toggle;
-
-      document.documentElement.lang = currentLang;
+    function setLanguage(lang) {
+      const content = texts[lang];
+      document.getElementById("title").innerText = content.title;
+      document.getElementById("description").innerText = content.description;
+      document.getElementById("portuguese").innerText = content.portuguese;
+      document.getElementById("spanish").innerText = content.spanish;
+      document.getElementById("english").innerText = content.english;
+      document.documentElement.lang = lang;
+      document.title = content.title;
     }
   </script>
 </body>
