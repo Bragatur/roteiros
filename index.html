@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Discover Braga in 3 Days</title>
 
-  <!-- LineIcons for download icon -->
   <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
 
   <style>
@@ -17,7 +17,6 @@
       background-size: cover;
       color: white;
     }
-
     .overlay {
       background-color: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(4px);
@@ -28,51 +27,45 @@
       padding: 20px;
       animation: fadeIn 1s ease-in-out;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    .container {
+    main {
       max-width: 500px;
       padding: 30px 20px;
       border-radius: 20px;
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
     }
-
     .lang-buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
       margin-bottom: 25px;
     }
-
+    .lang-buttons button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
     .lang-buttons img {
       width: 32px;
       height: auto;
-      cursor: pointer;
-      transition: transform 0.2s;
       border-radius: 5px;
+      transition: transform 0.2s;
     }
-
     .lang-buttons img:hover {
       transform: scale(1.1);
     }
-
     h1 {
       margin-bottom: 10px;
       font-size: 2em;
-      animation: fadeIn 1s ease-in-out;
     }
-
     p {
       margin-bottom: 30px;
       font-size: 1.1em;
-      animation: fadeIn 1s ease-in-out;
     }
-
     .download-buttons {
       display: flex;
       flex-direction: column;
@@ -80,7 +73,6 @@
       gap: 15px;
       margin-bottom: 30px;
     }
-
     .link-button {
       display: flex;
       align-items: center;
@@ -99,37 +91,29 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
     }
-
     .link-button:hover {
       background-color: #1a5bbf;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
-
     .link-button i {
       font-size: 18px;
     }
-
     .footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #ccc;
-      animation: fadeIn 1s ease-in-out;
     }
-
     @media (max-width: 600px) {
-      .container {
+      main {
         padding: 20px 10px;
       }
-
       h1 {
         font-size: 1.5em;
       }
-
       p {
         font-size: 1em;
       }
-
       .link-button {
         font-size: 0.95em;
       }
@@ -138,50 +122,52 @@
 </head>
 <body>
   <div class="overlay">
-    <div class="container">
+    <main>
       <div class="lang-buttons">
-        <img src="https://flagcdn.com/w40/pt.png" alt="Português" onclick="setLanguage('pt')" title="Português" aria-label="Selecionar idioma Português" />
-        <img src="https://flagcdn.com/w40/es.png" alt="Español" onclick="setLanguage('es')" title="Español" aria-label="Seleccionar idioma Español" />
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')" title="English" aria-label="Select English language" />
+        <button onclick="setLanguage('pt')" title="Português" aria-label="Selecionar idioma Português">
+          <img src="https://flagcdn.com/w40/pt.png" alt="Bandeira de Portugal - selecionar idioma Português" />
+        </button>
+        <button onclick="setLanguage('es')" title="Español" aria-label="Seleccionar idioma Español">
+          <img src="https://flagcdn.com/w40/es.png" alt="Bandera de España - seleccionar idioma Español" />
+        </button>
+        <button onclick="setLanguage('en')" title="English" aria-label="Select English language">
+          <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag - select English language" />
+        </button>
+        <button onclick="setLanguage('fr')" title="Français" aria-label="Choisir la langue française">
+          <img src="https://flagcdn.com/w40/fr.png" alt="Drapeau de la France - sélectionner langue française" />
+        </button>
       </div>
 
       <h1 id="title">Discover Braga in 3 Days</h1>
       <p id="description">Download the tourist guide in your language:</p>
 
       <div class="download-buttons">
-        <a id="btn-pt" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
+        <a id="btn-pt" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank" rel="noopener noreferrer">
           <i class="lni lni-download"></i> Português
         </a>
-
-        <a id="btn-es" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank">
+        <a id="btn-es" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf" target="_blank" rel="noopener noreferrer">
           <i class="lni lni-download"></i> Español
         </a>
-
-        <a id="btn-en" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank">
+        <a id="btn-en" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf" target="_blank" rel="noopener noreferrer">
           <i class="lni lni-download"></i> English
+        </a>
+        <a id="btn-fr" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-FRANCÊS.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="lni lni-download"></i> Français
         </a>
       </div>
 
       <div class="footer">
         © Município de Braga
       </div>
-    </div>
+    </main>
   </div>
 
   <script>
     const texts = {
-      pt: {
-        title: "Descobrir Braga em 3 Dias",
-        description: "Descarrega o roteiro turístico no teu idioma:"
-      },
-      es: {
-        title: "Descubrir Braga en 3 Días",
-        description: "Descarga la guía turística en tu idioma:"
-      },
-      en: {
-        title: "Discover Braga in 3 Days",
-        description: "Download the tourist guide in your language:"
-      }
+      pt: { title: "Descobrir Braga em 3 Dias", description: "Descarrega o roteiro turístico no teu idioma:" },
+      es: { title: "Descubrir Braga en 3 Días", description: "Descarga la guía turística en tu idioma:" },
+      en: { title: "Discover Braga in 3 Days", description: "Download the tourist guide in your language:" },
+      fr: { title: "Découvrir Braga en 3 Jours", description: "Téléchargez le guide touristique dans votre langue :" }
     };
 
     function setLanguage(lang) {
@@ -190,25 +176,18 @@
       document.documentElement.lang = lang;
       document.title = texts[lang].title;
 
-      // Esconde todos os botões
-      document.getElementById("btn-pt").style.display = "none";
-      document.getElementById("btn-es").style.display = "none";
-      document.getElementById("btn-en").style.display = "none";
+      ["pt", "es", "en", "fr"].forEach(id => {
+        const btn = document.getElementById(`btn-${id}`);
+        if (btn) btn.style.display = "none";
+      });
 
-      // Mostra apenas o botão da língua selecionada
       const selectedButton = document.getElementById(`btn-${lang}`);
-      if (selectedButton) {
-        selectedButton.style.display = "flex";
-      }
+      if (selectedButton) selectedButton.style.display = "flex";
     }
 
-    // Deteta idioma do navegador e aplica, com fallback para inglês
-    const supportedLanguages = ["pt", "es", "en"];
-    let browserLang = navigator.language.slice(0, 2);
-    if (!supportedLanguages.includes(browserLang)) {
-      browserLang = "en";
-    }
-
+    const supportedLanguages = ["pt", "es", "en", "fr"];
+    let browserLang = navigator.language.toLowerCase().split("-")[0];
+    if (!supportedLanguages.includes(browserLang)) browserLang = "en";
     setLanguage(browserLang);
   </script>
 </body>
