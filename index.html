@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Descobrir Braga em 3 Dias</title>
+  <title>Discover Braga in 3 Days</title>
 
   <!-- LineIcons for download icon -->
   <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
@@ -141,13 +140,13 @@
   <div class="overlay">
     <div class="container">
       <div class="lang-buttons">
-        <img src="https://flagcdn.com/w40/pt.png" alt="Português" onclick="setLanguage('pt')" title="Português" />
-        <img src="https://flagcdn.com/w40/es.png" alt="Español" onclick="setLanguage('es')" title="Español" />
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')" title="English" />
+        <img src="https://flagcdn.com/w40/pt.png" alt="Português" onclick="setLanguage('pt')" title="Português" aria-label="Selecionar idioma Português" />
+        <img src="https://flagcdn.com/w40/es.png" alt="Español" onclick="setLanguage('es')" title="Español" aria-label="Seleccionar idioma Español" />
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')" title="English" aria-label="Select English language" />
       </div>
 
-      <h1 id="title">Descobrir Braga em 3 Dias</h1>
-      <p id="description">Descarrega o roteiro turístico no teu idioma:</p>
+      <h1 id="title">Discover Braga in 3 Days</h1>
+      <p id="description">Download the tourist guide in your language:</p>
 
       <div class="download-buttons">
         <a id="btn-pt" class="link-button" href="https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf" target="_blank">
@@ -191,17 +190,26 @@
       document.documentElement.lang = lang;
       document.title = texts[lang].title;
 
-      // Oculta todos os botões
+      // Esconde todos os botões
       document.getElementById("btn-pt").style.display = "none";
       document.getElementById("btn-es").style.display = "none";
       document.getElementById("btn-en").style.display = "none";
 
       // Mostra apenas o botão da língua selecionada
-      document.getElementById(`btn-${lang}`).style.display = "flex";
+      const selectedButton = document.getElementById(`btn-${lang}`);
+      if (selectedButton) {
+        selectedButton.style.display = "flex";
+      }
     }
 
-    // Define o idioma padrão
-    setLanguage("pt");
+    // Deteta idioma do navegador e aplica, com fallback para inglês
+    const supportedLanguages = ["pt", "es", "en"];
+    let browserLang = navigator.language.slice(0, 2);
+    if (!supportedLanguages.includes(browserLang)) {
+      browserLang = "en";
+    }
+
+    setLanguage(browserLang);
   </script>
 </body>
 </html>
