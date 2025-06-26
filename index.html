@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Discover Braga in 3 Days</title>
-
   <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
 
   <style>
@@ -16,6 +15,7 @@
       background-size: cover;
       color: white;
     }
+
     .overlay {
       background-color: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(4px);
@@ -26,46 +26,61 @@
       padding: 20px;
       animation: fadeIn 1s ease-in-out;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
     main {
       max-width: 500px;
       padding: 30px 20px;
       border-radius: 20px;
       text-align: center;
     }
+
     .lang-buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
       margin-bottom: 25px;
     }
+
     .lang-buttons button {
       background: none;
       border: none;
       padding: 0;
       cursor: pointer;
-    }
-    .lang-buttons img {
       width: 45px;
       height: 30px;
       border-radius: 5px;
-      object-fit: cover;
       transition: transform 0.2s;
     }
-    .lang-buttons img:hover {
-      transform: scale(1.1);
+
+    .lang-buttons button.selected {
+      box-shadow: 0 0 0 2px white;
+      transform: scale(1.15);
     }
+
+    .lang-buttons img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      pointer-events: none;
+      user-select: none;
+    }
+
     h1 {
       margin-bottom: 10px;
       font-size: 2em;
     }
+
     p {
       margin-bottom: 30px;
       font-size: 1.1em;
     }
+
     .download-buttons {
       display: flex;
       flex-direction: column;
@@ -73,6 +88,7 @@
       gap: 15px;
       margin-bottom: 30px;
     }
+
     .link-button {
       display: flex;
       align-items: center;
@@ -91,31 +107,43 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
     }
+
     .link-button:hover {
       background-color: #1a5bbf;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
+
     .link-button i {
       font-size: 18px;
     }
+
     .footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #ccc;
     }
+
     @media (max-width: 600px) {
       main {
         padding: 20px 10px;
       }
+
       h1 {
         font-size: 1.5em;
       }
+
       p {
         font-size: 1em;
       }
+
       .link-button {
         font-size: 0.95em;
+      }
+
+      .lang-buttons button {
+        width: 36px;
+        height: 24px;
       }
     }
   </style>
@@ -221,6 +249,16 @@
         selectedBtn.innerHTML = `<i class="lni lni-download"></i> ${content.buttons[lang]}`;
         selectedBtn.style.display = "flex";
       }
+
+      // Atualiza visualmente o botão de idioma selecionado
+      document.querySelectorAll('.lang-buttons button').forEach(button =>
+        button.classList.remove('selected')
+      );
+
+      const langButton = [...document.querySelectorAll('.lang-buttons button')].find(btn =>
+        btn.getAttribute("onclick").includes(`'${lang}'`)
+      );
+      if (langButton) langButton.classList.add('selected');
     }
 
     const supportedLanguages = ["pt", "es", "en", "fr"];
