@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover Braga in 3 Days</title>
+  <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Segoe UI", sans-serif;
+      background: url('https://raw.githubusercontent.com/Bragatur/roteiros/e4d48fdab61378673304b6290a409d206806940f/Mockup%20roteiro%203%20dias%20(3).jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    main {
+      max-width: 500px;
+      width: 100%;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 2em;
+      line-height: 1.2;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    p {
+      margin: 0 0 30px 0;
+      font-size: 1.1em;
+      line-height: 1.4;
+      max-width: 100%;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .link-button {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      width: 100%;
+      max-width: 300px;
+      border: none;
+      border-radius: 30px;
+      background-color: #2575fc;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    .link-button:hover,
+    .link-button:focus {
+      background-color: #1a5bbf;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      outline: none;
+    }
+
+    .footer {
+      font-size: 0.9em;
+      color: #ccc;
+      user-select: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Botão flutuante de idiomas com legenda horizontal */
+    .lang-dropdown {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: floatIn 0.8s ease forwards 1.2s;
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lang-label {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 12px;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+      user-select: none;
+      text-align: center;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    .lang-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lang-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #2575fc;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .lang-icon:hover {
+      transform: scale(1.1);
+      background-color: #1a5bbf;
+    }
+
+    .lang-options {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .lang-options.show {
+      display: flex;
+      animation: fadeSlide 0.4s ease forwards;
+    }
+
+    .lang-options .lang-icon {
+      width: 38px;
+      height: 38px;
+      font-size: 0.8rem;
+      background-color: #555;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: optionPop 0.35s ease forwards;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes optionPop {
+      0% { opacity: 0; transform: translateY(10px) scale(0.8); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .lang-options.show .lang-icon:nth-child(n) {
+      animation-delay: calc(0.05s * var(--i));
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <main>
+      <h1 id="title">Discover Braga in 3 Days</h1>
+      <p id="description">Download the tourist guide in your language:</p>
+      <a id="download-button" class="link-button" href="#" target="_blank" rel="noopener noreferrer" aria-hidden="true">
+        <i class="lni lni-download"></i> Download
+      </a>
+      <div class="footer">© Município de Braga</div>
+    </main>
+  </div>
+
+  <div class="lang-dropdown">
+    <div class="lang-main">
+      <div id="current-lang" class="lang-icon">EN</div>
+    </div>
+    <div class="lang-options"></div>
+    <span class="lang-label" id="lang-label">Change language</span>
+  </div>
+
+  <script>
+    const texts = {
+      pt: {
+        title: "Descobrir Braga em 3 Dias",
+        description: "Descarregue o roteiro turístico em português:",
+        label: "Guia em Português",
+        langLabel: "Alterar idioma"
+      },
+      es: {
+        title: "Descubrir Braga en 3 Días",
+        description: "Descargue la guía turística en español:",
+        label: "Guía en Español",
+        langLabel: "Cambiar idioma"
+      },
+      en: {
+        title: "Discover Braga in 3 Days",
+        description: "Download the tourist guide in English:",
+        label: "Guide in English",
+        langLabel: "Change language"
+      },
+      fr: {
+        title: "Découvrir Braga en 3 Jours",
+        description: "Téléchargez le guide touristique en français:",
+        label: "Guide en Français",
+        langLabel: "Changer de langue"
+      }
+    };
+
+    const pdfLinks = {
+      pt: "https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-PORTUGUES.pdf",
+      es: "https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-ESPANHOL.pdf",
+      en: "https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-INGLES.pdf",
+      fr: "https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-FRANCES.pdf"
+    };
+
+    const flagMap = { pt: 'PT', es: 'ES', en: 'EN', fr: 'FR' };
+    const dropdown = document.querySelector('.lang-dropdown');
+    const currentLang = document.getElementById('current-lang');
+    const options = dropdown.querySelector('.lang-options');
+    const langLabel = document.getElementById('lang-label');
+
+    function renderDropdown(current) {
+      options.innerHTML = '';
+      let i = 1;
+      for (let lang in flagMap) {
+        if (lang !== current) {
+          const div = document.createElement('div');
+          div.className = 'lang-icon';
+          div.textContent = flagMap[lang];
+          div.style.setProperty('--i', i++);
+          div.onclick = () => setLanguage(lang);
+          options.appendChild(div);
+        }
+      }
+    }
+
+    currentLang.addEventListener('click', () => { options.classList.toggle('show'); });
+
+    function setLanguage(lang) {
+      const content = texts[lang] || texts['en'];
+      const btn = document.getElementById("download-button");
+
+      document.getElementById("title").textContent = content.title;
+      document.getElementById("description").textContent = content.description;
+      btn.href = pdfLinks[lang] || "#";
+      btn.innerHTML = `<i class='lni lni-download'></i> ${content.label}`;
+      btn.style.display = "flex";
+      btn.setAttribute("aria-hidden", "false");
+      document.documentElement.lang = lang;
+      document.title = content.title;
+
+      langLabel.textContent = content.langLabel;
+      currentLang.textContent = flagMap[lang];
+      renderDropdown(lang);
+      options.classList.remove('show');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const userLang = navigator.language.slice(0,2);
+      const supported = Object.keys(texts);
+      const lang = supported.includes(userLang) ? userLang : 'en';
+      setLanguage(lang);
+    });
+  </script>
+</body>
+</html>
