@@ -107,7 +107,8 @@
       align-items: flex-end; 
       opacity: 0;
       transform: translateY(-20px);
-      animation: floatInTop 0.8s ease forwards 1.2s;
+      /* ALTERADO: Removido o atraso de 1.2s para aparecer imediatamente (agora 0s) */
+      animation: floatInTop 0.8s ease forwards 0s; 
     }
 
     @keyframes floatInTop {
@@ -200,7 +201,8 @@
       align-items: center;
       opacity: 0;
       transform: translateY(20px);
-      animation: floatIn 0.8s ease forwards 1.2s;
+      /* ALTERADO: Removido o atraso de 1.2s para aparecer imediatamente (agora 0s) */
+      animation: floatIn 0.8s ease forwards 0s;
     }
 
     @keyframes floatIn {
@@ -290,7 +292,7 @@
   <script>
     const texts = {
       pt: { title: "Descobrir Braga em 3 Dias", description: "Descarregue o roteiro turístico em português:", label: "Guia em Português", langLabel: "Alterar idioma" },
-      es: { title: "Descubrir Braga en 3 Días", description: "Descargue la guía turística en español:", label: "Guía en Español", langLabel: "Cambiar idioma" },
+      es: { title: "Descubrir Braga em 3 Días", description: "Descargue la guía turística en español:", label: "Guía en Español", langLabel: "Cambiar idioma" },
       en: { title: "Discover Braga in 3 Days", description: "Download the tourist guide in English:", label: "Guide in English", langLabel: "Change language" },
       fr: { title: "Découvrir Braga en 3 Jours", description: "Téléchargez le guide touristique en français:", label: "Guide en Français", langLabel: "Changer de langue" }
     };
