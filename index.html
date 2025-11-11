@@ -414,7 +414,12 @@
       renderDropdown(lang);
     }
 
-    setLanguage('en');
+    function getBrowserLanguage() {
+      const lang = (navigator.language || navigator.userLanguage).slice(0, 2);
+      return texts.hasOwnProperty(lang) ? lang : 'en';
+    }
+
+    setLanguage(getBrowserLanguage());
   </script>
 </body>
 </html>
