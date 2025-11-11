@@ -96,7 +96,7 @@
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
 
-    /* Botão menu flutuante - ESTILOS DO ROT INFANTIL */
+    /* Botão menu flutuante */
     .menu-dropdown {
       position: fixed;
       top: 20px;
@@ -107,7 +107,6 @@
       align-items: flex-end; 
       opacity: 0;
       transform: translateY(-20px);
-      /* ALTERADO: Removido o atraso de 1.2s para aparecer imediatamente (agora 0s) */
       animation: floatInTop 0.8s ease forwards 0s; 
     }
 
@@ -152,11 +151,11 @@
     .menu-option-link {
       display: flex;
       align-items: center;
-      justify-content: flex-end; /* Alterado: Alinha o conteúdo à direita */
-      gap: 8px; /* Adicionado: Espaçamento entre texto e ícone */
+      justify-content: flex-end;
+      gap: 8px;
       padding: 10px;
-      width: auto; /* Alterado: Ajusta a largura ao conteúdo */
-      min-width: 120px; /* Alterado: Reduzido para permitir ajuste ao texto */
+      width: auto;
+      min-width: 120px;
       border-radius: 10px;
       background-color: #555; 
       color: #fff;
@@ -171,7 +170,6 @@
     }
     
     .menu-options.show .menu-option-link:nth-last-child(n) {
-        /* Inverter ordem de animação para que apareça de cima para baixo */
         animation-delay: calc(0.05s * var(--i));
     }
 
@@ -190,7 +188,7 @@
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* Botão de idioma (inferior direito) - MANTIDO INALTERADO */
+    /* Botão de idioma */
     .lang-dropdown {
       position: fixed;
       bottom: 20px;
@@ -201,7 +199,6 @@
       align-items: center;
       opacity: 0;
       transform: translateY(20px);
-      /* ALTERADO: Removido o atraso de 1.2s para aparecer imediatamente (agora 0s) */
       animation: floatIn 0.8s ease forwards 0s;
     }
 
@@ -304,47 +301,54 @@
       fr: "https://raw.githubusercontent.com/Bragatur/roteiros/main/CMB-Roteir-Descobrir-Braga-em-tre-s-Dias-Versao-Digital-WEB-FRANCES.pdf"
     };
 
-    // Adicionado um mapeamento de ícones para o novo estilo de menu
     const menuIcons = {
-        "Mapa Turístico de Braga": "fa-solid fa-map",
-        "Roteiro do Barroco": "fa-solid fa-landmark",
-        "Roteiro Infantil": "fa-solid fa-child-reaching",
-        "Braga After Dark": "fa-solid fa-moon",
-        "Braga Tourist Map": "fa-solid fa-map",
-        "Baroque Route": "fa-solid fa-landmark",
-        "Children's Route": "fa-solid fa-child-reaching",
-        "Ruta del Barroco": "fa-solid fa-landmark",
-        "Ruta Infantil": "fa-solid fa-child-reaching",
-        "Carte Touristique de Braga": "fa-solid fa-map",
-        "Itinéraire Baroque": "fa-solid fa-landmark",
-        "Itinéraire Enfants": "fa-solid fa-child-reaching",
+      "Mapa Turístico de Braga": "fa-solid fa-map",
+      "Roteiro do Barroco": "fa-solid fa-landmark",
+      "Roteiro Infantil": "fa-solid fa-child-reaching",
+      "Braga After Dark": "fa-solid fa-moon",
+      "Lojas com História": "fa-solid fa-store",
+      "Braga Tourist Map": "fa-solid fa-map",
+      "Baroque Route": "fa-solid fa-landmark",
+      "Children's Route": "fa-solid fa-child-reaching",
+      "Shops with History": "fa-solid fa-store",
+      "Mapa Turístico de Braga": "fa-solid fa-map",
+      "Ruta del Barroco": "fa-solid fa-landmark",
+      "Ruta Infantil": "fa-solid fa-child-reaching",
+      "Tiendas con Historia": "fa-solid fa-store",
+      "Carte Touristique de Braga": "fa-solid fa-map",
+      "Itinéraire Baroque": "fa-solid fa-landmark",
+      "Itinéraire Enfants": "fa-solid fa-child-reaching",
+      "Boutiques Historiques": "fa-solid fa-store"
     };
 
-    // A entrada "Descobrir Braga em 3 dias" foi removida de todas as listas.
     const menuTranslations = {
       pt: [
         { name: "Mapa Turístico de Braga", url: "https://bragatur.github.io/mapas/" },
         { name: "Roteiro do Barroco", url: "https://bragatur.github.io/roteiro_barroco_braga/" },
         { name: "Roteiro Infantil", url: "https://bragatur.github.io/roteiro_intantil/" },
-        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" }
+        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" },
+        { name: "Lojas com História", url: "https://visitbraga.travel/wp-content/uploads/2025/11/Livro_Lojas_Com_Historia_Braga.pdf" }
       ],
       en: [
         { name: "Braga Tourist Map", url: "https://bragatur.github.io/mapas/" },
         { name: "Baroque Route", url: "https://bragatur.github.io/roteiro_barroco_braga/" },
         { name: "Children's Route", url: "https://bragatur.github.io/roteiro_intantil/" },
-        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" }
+        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" },
+        { name: "Shops with History", url: "https://visitbraga.travel/wp-content/uploads/2025/11/Livro_Lojas_Com_Historia_Braga.pdf" }
       ],
       es: [
         { name: "Mapa Turístico de Braga", url: "https://bragatur.github.io/mapas/" },
         { name: "Ruta del Barroco", url: "https://bragatur.github.io/roteiro_barroco_braga/" },
         { name: "Ruta Infantil", url: "https://bragatur.github.io/roteiro_intantil/" },
-        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" }
+        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" },
+        { name: "Tiendas con Historia", url: "https://visitbraga.travel/wp-content/uploads/2025/11/Livro_Lojas_Com_Historia_Braga.pdf" }
       ],
       fr: [
         { name: "Carte Touristique de Braga", url: "https://bragatur.github.io/mapas/" },
         { name: "Itinéraire Baroque", url: "https://bragatur.github.io/roteiro_barroco_braga/" },
         { name: "Itinéraire Enfants", url: "https://bragatur.github.io/roteiro_intantil/" },
-        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" }
+        { name: "Braga After Dark", url: "https://bragatur.github.io/bragaafterdark/" },
+        { name: "Boutiques Historiques", url: "https://visitbraga.travel/wp-content/uploads/2025/11/Livro_Lojas_Com_Historia_Braga.pdf" }
       ]
     };
 
@@ -354,7 +358,6 @@
     const langLabel = document.getElementById('lang-label');
     const menuOptions = document.getElementById('menu-options');
     const menuToggler = document.getElementById('menu-toggler');
-
 
     function renderDropdown(current) {
       langOptions.innerHTML = '';
@@ -376,36 +379,28 @@
     function renderMenu(lang) {
       const links = menuTranslations[lang] || menuTranslations['en'];
       menuOptions.innerHTML = '';
-      let i = links.length; // Contagem regressiva para animação de cima para baixo
-      
-      // Inverte a ordem dos links para o efeito de animação (o 1º no array aparece no topo)
-      [...links].reverse().forEach(link => { 
+      let i = links.length;
+      [...links].reverse().forEach(link => {
         const a = document.createElement('a');
         a.className = 'menu-option-link';
         a.href = link.url;
-        // REMOVIDO: a.target = "_blank";
-        const iconClass = menuIcons[link.name] || 'fa-solid fa-circle-info'; // Ícone padrão
-        // Alterado: Texto à esquerda, Ícone à direita (e removida a margem inline)
-        a.innerHTML = `${link.name} <i class="${iconClass}"></i>`; 
+        const iconClass = menuIcons[link.name] || 'fa-solid fa-circle-info';
+        a.innerHTML = `${link.name} <i class="${iconClass}"></i>`;
         a.style.setProperty('--i', i--);
         menuOptions.appendChild(a);
       });
     }
 
-    // Listener para abrir/fechar o menu e mudar o ícone
     menuToggler.addEventListener('click', () => {
       menuOptions.classList.toggle('show');
-      if (menuOptions.classList.contains('show')) {
-         menuToggler.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-      } else {
-         menuToggler.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      }
+      menuToggler.innerHTML = menuOptions.classList.contains('show')
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
     });
 
     function setLanguage(lang) {
       const content = texts[lang] || texts['en'];
       const btn = document.getElementById("download-button");
-
       document.getElementById("title").textContent = content.title;
       document.getElementById("description").textContent = content.description;
       btn.href = pdfLinks[lang] || "#";
@@ -414,21 +409,12 @@
       document.title = content.title;
       langLabel.textContent = content.langLabel;
       currentLang.textContent = flagMap[lang];
-      renderDropdown(lang);
-      renderMenu(lang);
       langOptions.classList.remove('show');
-      
-      // Fecha o menu principal se estiver aberto ao mudar o idioma
-      menuOptions.classList.remove('show');
-      menuToggler.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      renderMenu(lang);
+      renderDropdown(lang);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const userLang = navigator.language.slice(0,2);
-      const supported = Object.keys(texts);
-      const lang = supported.includes(userLang) ? userLang : 'en';
-      setLanguage(lang);
-    });
+    setLanguage('en');
   </script>
 </body>
 </html>
