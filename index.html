@@ -283,7 +283,6 @@
       <div id="current-lang" class="lang-icon">EN</div>
     </div>
     <div class="lang-options"></div>
-    <span class="lang-label" id="lang-label">Change language</span>
   </div>
 
   <script>
@@ -355,7 +354,6 @@
     const flagMap = { pt: 'PT', es: 'ES', en: 'EN', fr: 'FR' };
     const currentLang = document.getElementById('current-lang');
     const langOptions = document.querySelector('.lang-options');
-    const langLabel = document.getElementById('lang-label');
     const menuOptions = document.getElementById('menu-options');
     const menuToggler = document.getElementById('menu-toggler');
 
@@ -407,7 +405,6 @@
       btn.innerHTML = `<i class='lni lni-download'></i> ${content.label}`;
       btn.style.display = "flex";
       document.title = content.title;
-      langLabel.textContent = content.langLabel;
       currentLang.textContent = flagMap[lang];
       langOptions.classList.remove('show');
       renderMenu(lang);
