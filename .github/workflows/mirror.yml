@@ -1,0 +1,22 @@
+name: Sincronizar para o GitLab
+
+on:
+  push:
+    branches:
+      - '**' # Isto sincroniza qualquer branch que sofra um push
+    tags:
+      - '**'   # Isto também sincroniza as tuas tags
+
+jobs:
+  to-gitlab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror para o GitLab
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: "https://github-actions:${{ secrets.GITLAB_TOKEN }}@gitlab.com/Bragatur/roteiros.git"
